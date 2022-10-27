@@ -1,9 +1,11 @@
 class kaya_identity:
-    def __init__(self, pop_size: float, gdp: float, energy_intensity: float, carbon_intensity: float) -> None:
+    def __init__(self, pop_size: float, gdp: float, energy_intensity: float, 
+                 carbon_intensity: float, output_type="CO2") -> None:
         self.pop_size = pop_size
         self.gdp = gdp
         self.energy_intensity = energy_intensity
         self.carbon_intensity = carbon_intensity
+        self.output_type = output_type
     
     def check_input(self, variable, def_string):
         if not (isinstance((variable), (float, int))):
@@ -27,7 +29,17 @@ class kaya_identity:
             
         
         kaya_iden = self.pop_size * self.gdp * self.energy_intensity * self.carbon_intensity
-        return (round(kaya_iden, 2))
+        if self.output_type == "CO2":
+            print(round(kaya_iden, 2))
+            return (round(kaya_iden, 2))
+        
+        elif self.output_type == "C":
+            print((round(kaya_iden/3.76, 2)))
+            return (round(kaya_iden/3.76, 2))
+        
+        else:
+            raise ValueError("Please input correct output type: C/CO2")
+        
     
 # if __name__ == "__main__":
 #     kaya_identity(1,2,1,1).cal_kaya_identity()
