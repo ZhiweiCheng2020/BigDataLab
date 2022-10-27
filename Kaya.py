@@ -1,4 +1,10 @@
+import os
+num = os.environ.get("INPUT_NUM")
+
+
 class kaya_identity:
+    num = os.environ.get("INPUT_NUM")
+    
     def __init__(self, pop_size: float, gdp: float, energy_intensity: float, 
                  carbon_intensity: float, output_type="CO2") -> None:
         self.pop_size = pop_size
