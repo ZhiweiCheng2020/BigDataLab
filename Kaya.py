@@ -27,8 +27,7 @@ class kaya_identity:
             
         
         kaya_iden = self.pop_size * self.gdp * self.energy_intensity * self.carbon_intensity
-        print(kaya_iden)
-        return kaya_iden
+        return (round(kaya_iden, 2))
     
-if __name__ == "__main__":
-    kaya_identity(1,2,1,1).cal_kaya_identity()
+# if __name__ == "__main__":
+#     kaya_identity(1,2,1,1).cal_kaya_identity()
